@@ -1,15 +1,23 @@
-## Project Summary
+# Project Summary
 
 This project contains two parts
 1. Depression Classification
-2. Speaker Diarization: 
-    Speaker Diarization experimenst are implemented for the prupose to obtaining more data from the raw audio to alleviate the work for frmae level speaker annotation. 
-### Depression Classification
+2. Speaker Diarization: <br/>
+        Speaker Diarization experiments are implemented for the prupose to obtaining more data from the raw audio to alleviate the work for frmae level speaker annotation. 
+
+# Section
+## Depression Classification
 
 
-### Speaker Diarization
+## Speaker Diarization
 
+### Pipeline Finetuning
 
+### Block Finetuning
+
+### Mandrain Corpus Embedding Pretraining
+ 
+### Doc vs Patient Binary Classification Reformulation
 
 ```markdown
 Syntax highlighted code block
