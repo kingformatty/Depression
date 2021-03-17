@@ -130,6 +130,15 @@ The Precision vs Recall Curve and F1 vs Threshold Curve are as shown below in Fi
 ![F1-score vs Threshold Curve](f1.png)
 
 
+### Discussion and Conclusion
+
+Depression Classification
+
+Speaker Diarization: <br/>
+        - From experiments result shown above, we found that, most approaches boost the patient extraction performance greatly by boosting the precision and recall score. By restricting the number of cluster centroids, the precision is boost from 47.44 to 75.06, by sacrifying the recall score in half. One step further, after training the speaker embedding block using large Mandrain corpus, we boost the precision from 75.06 to 78.92, and the recall is also doubled, which is also the best result we have and applied to the pilot study. The final stage experiment, binary classification doesn't bring any performance improvement. One hypothesis is that two speaker embedding vectors doesn't hold similar distribution across all utterance since speakers in all utterances are different. Also, due to the characteristic of this dataset, only relative speaker id is available, which means even utterance1 and utterance2 share the same speaker, they will be labeled as different set of speakers when training the embedding block and testing on it. Therefore, a trained binary classification model can not capture this relatively difference better than clustering method. From the precision vs recall curve and F1-score vs threshold curve, we can also see a highly screwed shape for both of them.      
+       - The model with best performance on extracting high confidence patient audio can achieve preciation as 78.92 with a comparable recall as 36.21. The patient audio in pilot study (around 500 files) are extracted using this model. And we are still waiting for the feature-domain evaluation for gene analysis from another group.  
+      - The group has already determined the next step for this project, which is detecting depression with short but precise patient audio around 1:30 minutes to 2:30 minutes for each patient. It can still alleivate the work for annotating entire audio. 
+     
 
 
 ### Contact
