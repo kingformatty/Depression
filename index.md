@@ -6,18 +6,37 @@ This project contains two parts
         Speaker Diarization experiments are implemented for the prupose to obtaining more data from the raw audio to alleviate the work for frmae level speaker annotation. 
 
 # Section
-## Depression Classification
+## 1. Depression Classification
 
 
-## Speaker Diarization
+## 2. Speaker Diarization
 
-### Pipeline Finetuning
+### 2.1. Pipeline Finetuning
+```markdown
 
-### Block Finetuning
 
-### Mandrain Corpus Embedding Pretraining
- 
-### Doc vs Patient Binary Classification Reformulation
+```
+### 2.2. Block Finetuning
+
+Since the conventional speaker diarization pipeline contains blocks as speaker activity detection, speaker change detection, and speaker embedding block. This approach is to use the groundtruth data to finetune the model pretrained with DIHARD dataset for each block separately. And then do the pipeline finetuning jointly at the final stage. 
+```markdown
+
+``` 
+
+### 2.4. Two Centriods AHC Reformulation
+```markdown
+
+``` 
+
+### 2.4. Mandrain Corpus Embedding Pretraining
+```markdown
+
+``` 
+### 2.5. Doc vs Patient Binary Classification Reformulation
+```markdown
+
+```
+
 
 ```markdown
 Syntax highlighted code block
