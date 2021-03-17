@@ -31,7 +31,7 @@ The dataset is split into train-dev-test in ratio 92:22:12 with the quality rati
 Classification Experiments:
 
 Diarization experiments are implemented using Pyannote-audio toolbox. For speaker activity detectiona and speaker change detection, those are frame-level binary classification task using LSTM based neural network to determine whether there is a speech within the frame, and whether there is a speaker change accordingly. The speaker embedding block is a x-vector extractor. Finally, the segment-wise speaker embedding vectors are clustered to get the final diarization results across time. Sample pipeline structure is shown below in Figure.
-![Diarization Pipeline Structure](1_ryP8OUNqGTg_JLsCyOOxKA.png)
+![Diarization Pipeline Structure](dia.png)
 
 In all preliminary experiments, models are well-trained on DIHARD dataset which has multiple hard-diarized meeting corpus. In pilot study, model trained on AMI and DIHARD are compared in advanced. And we found that DIHARD matches this project better. So all following experiments are implemented based on this. And the baseline is the DIHARD model not finetuned on our dataset.   
 
