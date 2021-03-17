@@ -5,6 +5,9 @@ This project contains two parts
 2. Speaker Diarization: <br/>
         Speaker Diarization experiments are implemented for the prupose to obtaining more data from the raw audio to alleviate the work for frame level speaker annotation. More specific, the performance is not only evaluated based on Diarization Error Rate (DER), but also based on the performance on how well the patient audio can be extracted with high confidence.
 
+Notation: Since the final target of this project is to detect the depression emotion of patient. Therefore, evaluate the confidence of extract patient audio is crucial for the model, even more important than DER. For patient analysis, we use precision, recall and F1-score to evaluate the model about the performance on extract high-confidence patient audio. Precision is the duration of correct detected patient audio divided by the detected patient audio. Recall is the duration of correct detected patient audio divided by the total duration in test set. And F1-score is the balanced metrics for Precision and Recall. 
+        
+        
 # Section
 ## 1. Depression Classification
 
@@ -100,13 +103,12 @@ Patient Analysis
 | KNN                    |               | 47.44        | 44.85         | 42.17         | 
 ```
 
+The Precision vs Recall Curve and F1 vs Threshold Curve are as shown below in Figure.
+(http://github.com/yourname/your-repository/raw/master/images-folder/xxx.png)
 
 
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kingformatty/Depression/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Contact
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Jinhan Wang: wang7875@g.ucla.edu
