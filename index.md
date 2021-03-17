@@ -3,7 +3,7 @@
 This project contains two parts
 1. Depression Classification
 2. Speaker Diarization: <br/>
-        Speaker Diarization experiments are implemented for the prupose to obtaining more data from the raw audio to alleviate the work for frame level speaker annotation. More specific, the performance is not only evaluated based on Diarization Error Rate (DER), but also based on the performance on how well the patient audio can be extracted with high confidence.
+        Speaker Diarization experiments are implemented for the purpose to obtain more data from the raw audio to alleviate the work for frame level speaker annotation. More specific, the performance is not only evaluated based on Diarization Error Rate (DER), but also based on the performance on how well the patient audio can be extracted with high confidence.
 
 Notation: Since the final target of this project is to detect the depression emotion of patient. Therefore, evaluate the confidence of extract patient audio is crucial for the model, even more important than DER. For patient analysis, we use precision, recall and F1-score to evaluate the model about the performance on extract high-confidence patient audio. Precision is the duration of correct detected patient audio divided by the detected patient audio. Recall is the duration of correct detected patient audio divided by the total duration in test set. And F1-score is the balanced metrics for Precision and Recall. 
         
@@ -14,12 +14,30 @@ Notation: Since the final target of this project is to detect the depression emo
 
 ## 2. Speaker Diarization
 
-### 2.1. Pipeline Finetuning
+### 2.1 Dataset
+The dataset we used so far contains 126 files in total, 100 hours approximately. Each sample is a meeting between a doctor and a female patient. The ratio of doctor gender is around 7 (female) : 3  (male). The quality is classified into four groups, namely excellent, good, and average. The ratio of audio quality is 7 (excellent) : 3 (good/average/bad). 
+```markdown
+| Qualtiy        | Description               |  
+| -------------- |:-------------------------:|
+| Excellent      | clear, no noise, no echo  |
+| Good           | clear, a little noise     | 
+| Average        | clear, accompanying noise | 
+```
+The dataset is split into train-dev-test in ratio 92:22:12 with the quality ratio and gender ratio be 7 : 3 for all of them. 
+
+
+### 2.2. Experiment Setup
+
+Classification Experiments:
+Diarization experiments are implemented using Pyannote-audio toolbox. For speaker activity detectiona and speaker change detection, those are frame-level binary classification task using LSTM based neural network to determine whether there is a speech within the frame, and whether there is a speaker change accordingly. The speaker embedding block is a x-vector extractor. Finally, the segment-wise speaker embedding vectors are clustered to get the final diarization results across time. Sample pipeline structure is shown below in Figure.
+
+
+#### 2.2.1. Pipeline Finetuning
 ```markdown
 
 
 ```
-### 2.2. Block Finetuning
+#### 2.2.2. Block Finetuning
 
 Since the conventional speaker diarization pipeline contains blocks as speaker activity detection, speaker change detection, and speaker embedding block. This approach is to use the groundtruth data to finetune the model pretrained with DIHARD dataset for each block separately. And then do the pipeline finetuning jointly at the final stage. 
 ```markdown
@@ -40,7 +58,7 @@ Patient Analysis
 
 ``` 
 
-### 2.4. Two Centriods AHC Reformulation
+#### 2.2.3. Two Centriods AHC Reformulation
 Unlike conventional diarization task that the system has to determine the number of speaker by itself. In this project, each sample is a two-speaker utterance. Thus, we restrict the number of centriod to be 2 to simplify the problem.
 
 ```markdown
@@ -62,7 +80,7 @@ Patient Analysis
 
 ```
 
-### 2.4. Mandrain Corpus Embedding Pretraining
+#### 2.2.4. Mandrain Corpus Embedding Pretraining
 Since DIHARD pretrained model is based on English, to mitigate the language mismatch, we retrain the embedding model on CN-Celeb dataset (about 300 hours), and keep the other two tuned blocks to be identical.
 
 ```markdown
@@ -85,7 +103,7 @@ Patient Analysis
 | + Finetune             | 78.92         | 36.21        | 49.64         |
 ```
 
-### 2.5. Doc vs Patient Binary Classification Reformulation
+#### 2.2.5. Doc vs Patient Binary Classification Reformulation
 Step further from the centroid-restrict clustering, we come up with a simplier binary classification model to replace the AHC clustering. Performance is evaluated purly on the patient perspective, i.e. how well the model can extract the patient audio with relatively higher confidence.
 
 ```markdown
