@@ -104,7 +104,7 @@ Patient Analysis
 ```
 
 The Precision vs Recall Curve and F1 vs Threshold Curve are as shown below in Figure.
-(http://github.com/yourname/your-repository/raw/master/images-folder/xxx.png)
+(https://github.com/kingformatty/Depression/edit/gh-pages/pr.png)
 
 
 
