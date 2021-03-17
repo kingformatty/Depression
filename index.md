@@ -2,15 +2,18 @@
 
 This project contains two parts
 1. Depression Classification
-2. Speaker Diarization:
+2. Speaker Diarization: 
+    Speaker Diarization experimenst are implemented for the prupose to obtaining more data from the raw audio to alleviate the work for frmae level speaker annotation. 
+### Depression Classification
 
-### Markdown
 
-Good to go
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Speaker Diarization
+
+
 
 ```markdown
 Syntax highlighted code block
+
 
 # Header 1
 ## Header 2
