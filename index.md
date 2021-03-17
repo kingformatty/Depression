@@ -105,8 +105,8 @@ Patient Analysis
 
 The Precision vs Recall Curve and F1 vs Threshold Curve are as shown below in Figure.
 
-(pr.png)
-(f1.png)
+![Precision vs Recall Curve](pr.png)
+![F1-score vs Threshold Curve](f1.png)
 
 
 
